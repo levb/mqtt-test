@@ -39,6 +39,14 @@ type PubValue struct {
 	Timestamp int64 `json:"timestamp"`
 }
 
+type MQTTBenchmarkResult struct {
+	Ops   int           `json:"ops"`
+	NS    time.Duration `json:"ns"`
+	Unit  string        `json:"unit"`
+	Bytes int64         `json:"bytes"`
+}
+
+
 var Opts Options
 
 func InitCommand(cmd *cobra.Command) {

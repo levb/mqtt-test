@@ -7,7 +7,6 @@ import (
 
 	paho "github.com/eclipse/paho.mqtt.golang"
 	mqttapp "github.com/levb/mqtt-test"
-	server "github.com/nats-io/nats-server/v2/server"
 	"github.com/spf13/cobra"
 )
 
@@ -98,7 +97,7 @@ func run() error {
 		bc += mqttapp.LenPublish(opts.Topic, byte(opts.QOS), opts.Retain, payload)
 	}
 
-	bb, _ := json.Marshal(server.MQTTBenchmarkResult{
+	bb, _ := json.Marshal(mqttapp.MQTTBenchmarkResult{
 		Ops:   opts.N,
 		NS:    elapsed,
 		Unit:  "pub",
